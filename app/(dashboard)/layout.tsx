@@ -7,7 +7,7 @@ interface layoutProps {
   children: React.ReactNode;
 }
 
-const layout: FC<layoutProps> = ({ children }) => {
+const Layout: FC<layoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen min-w-full bg-background max-h-screen">
       <nav className="flex justify-between items-center border-b border-border h-[60px] px-4 py-2">
@@ -20,4 +20,4 @@ const layout: FC<layoutProps> = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
