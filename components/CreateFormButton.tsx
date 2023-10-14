@@ -1,8 +1,13 @@
 "use client";
 
+import { CreateForm } from "@/actions/form";
+import { FormSchemaType, formSchema } from "@/schemas/formSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { FC } from "react";
+import { useForm } from "react-hook-form";
 import { BsFileEarmarkPlus } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
+import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,10 +17,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { Button } from "./ui/button";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -27,8 +28,6 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "./ui/use-toast";
-import { FormSchemaType, formSchema } from "@/schemas/formSchema";
-import { CreateForm } from "@/actions/form";
 
 interface CreateFormButtonProps {}
 
@@ -57,7 +56,15 @@ const CreateFormButton: FC<CreateFormButtonProps> = ({}) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Create New Form</Button>
+        <Button
+          variant="outline"
+          className="group border border-primary/20 h-[190px] items-center justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed gap-4 bg-background"
+        >
+          <BsFileEarmarkPlus className="group-hover:text-primary h-8 w-8 text-muted-foreground" />
+          <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">
+            Create New Form
+          </p>
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
