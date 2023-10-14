@@ -27,23 +27,24 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "./ui/use-toast";
+import { FormSchemaType, formSchema } from "@/schemas/formSchema";
+import { CreateForm } from "@/actions/form";
 
 interface CreateFormButtonProps {}
-
-type FormSchemaType = z.infer<typeof formSchema>;
-
-const formSchema = z.object({
-  name: z.string().min(4),
-  description: z.string().optional(),
-});
 
 const CreateFormButton: FC<CreateFormButtonProps> = ({}) => {
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (values: FormSchemaType) => {
+  const onSubmit = async (values: FormSchemaType) => {
     try {
+      const formId = await CreateForm(values);
+      console.log("formId", formId);
+      toast({
+        title: "Form Created",
+        description: "New form created successfully",
+      });
     } catch (error) {
       toast({
         title: "Error Creating Form",
@@ -98,9 +99,7 @@ const CreateFormButton: FC<CreateFormButtonProps> = ({}) => {
         </Form>
         <DialogFooter>
           <Button
-            onClick={() => {
-              form.handleSubmit(onSubmit);
-            }}
+            onClick={form.handleSubmit(onSubmit)}
             disabled={form.formState.isSubmitting}
             className="w-full mt-4"
           >
