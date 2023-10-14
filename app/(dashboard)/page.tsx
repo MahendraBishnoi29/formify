@@ -1,5 +1,6 @@
 import { GetFormStats } from "@/actions/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ReactNode, Suspense } from "react";
 import { FaWpforms } from "react-icons/fa";
@@ -18,6 +19,9 @@ export default function Home() {
       <Suspense fallback={<StatsCards loading={true} />}>
         <CardStatsWrapper />
       </Suspense>
+      <Separator className="my-6" />
+      <h2 className="text-4xl font-bold col-span-2">Your Forms</h2>
+      <Separator className="my-6" />
     </main>
   );
 }
@@ -51,7 +55,7 @@ function StatsCards(props: StateCardProps) {
       />
 
       <StatsCard
-        value={data?.submissionRate.toLocaleString() || ""}
+        value={data?.submissionRate.toLocaleString() + "%" || ""}
         title="Submission Rate"
         icon={<HiCursorClick className="text-green-600" />}
         helperText="Visits that result in form submissions"
@@ -60,7 +64,7 @@ function StatsCards(props: StateCardProps) {
       />
 
       <StatsCard
-        value={data?.visits.toLocaleString() || ""}
+        value={data?.visits.toLocaleString() + "%" || ""}
         title="Bounce Rate"
         icon={<TbArrowBounce className="text-red-600" />}
         helperText="Visits that leaves without interacting"
@@ -87,7 +91,9 @@ function StatsCard({
   className: string;
 }) {
   return (
-    <Card className={className}>
+    <Card
+      className={`hover:transform hover:scale-105 hover:cursor-pointer scale-100 transition-transform duration-300 ${className}`}
+    >
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-lg font-medium text-muted-foreground">
           {title}
