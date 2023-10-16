@@ -1,5 +1,5 @@
 import { GetFormStats, GetForms } from "@/actions/form";
-import CreateFormButton from "@/components/CreateFormButton";
+import CreateFormButton from "@/components/form/CreateFormButton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
