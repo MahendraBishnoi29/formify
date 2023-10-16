@@ -28,6 +28,7 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "./ui/use-toast";
+import { useRouter } from "next/navigation";
 
 interface CreateFormButtonProps {}
 
@@ -35,11 +36,12 @@ const CreateFormButton: FC<CreateFormButtonProps> = ({}) => {
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
   });
+  const router = useRouter();
 
   const onSubmit = async (values: FormSchemaType) => {
     try {
       const formId = await CreateForm(values);
-      console.log("formId", formId);
+      router.push(`/builder/${formId}`);
       toast({
         title: "Form Created",
         description: "New form created successfully",
