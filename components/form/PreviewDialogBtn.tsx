@@ -1,9 +1,13 @@
-import { FC } from "react";
+import { MdPreview } from "react-icons/md";
+import { Button } from "../ui/button";
 
-interface PreviewDialogBtnProps {}
-
-const PreviewDialogBtn: FC<PreviewDialogBtnProps> = ({}) => {
-  return <div>PreviewDialogBtn</div>;
+const PreviewDialogBtn = () => {
+  return (
+    <Button variant="outline" className="gap-2">
+      <MdPreview className="h-4 w-4" />
+      Preview
+    </Button>
+  );
 };
 
 export default PreviewDialogBtn;
