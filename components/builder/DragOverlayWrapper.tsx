@@ -25,7 +25,7 @@ const DragOverlayWrapper: FC<DragOverlayWrapperProps> = ({}) => {
   if (!draggedIn) return null;
 
   let node = <div>no drag overlay</div>;
-  const isSidebarBtnElement = draggedIn.data?.current?.isDesignerBtnElement;
+  const isSidebarBtnElement = draggedIn.data?.current?.designerBtnElement;
 
   if (isSidebarBtnElement) {
     const type = draggedIn.data?.current?.type as ElementsType;

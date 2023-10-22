@@ -14,7 +14,7 @@ const SidebarBtnElement: FC<SidebarBtnElementProps> = ({ formElement }) => {
     id: `designer-btn-${formElement.type}`,
     data: {
       type: formElement.type,
-      isDescriptionElements: true,
+      designerBtnElement: true,
     },
   });
 
