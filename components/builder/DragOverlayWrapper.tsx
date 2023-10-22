@@ -14,6 +14,9 @@ const DragOverlayWrapper: FC<DragOverlayWrapperProps> = ({}) => {
     onDragStart: (e) => {
       setDraggedIn(e.active);
     },
+    onDragCancel: () => {
+      setDraggedIn(null);
+    },
     onDragEnd: () => {
       setDraggedIn(null);
     },
@@ -29,9 +32,7 @@ const DragOverlayWrapper: FC<DragOverlayWrapperProps> = ({}) => {
     node = <SidebarBtnElementDragOverlay formElement={FormElements[type]} />;
   }
 
-  const note = "you you";
-
-  return <DragOverlay>{note}</DragOverlay>;
+  return <DragOverlay>{node}</DragOverlay>;
 };
 
 export default DragOverlayWrapper;

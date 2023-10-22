@@ -7,6 +7,7 @@ import Designer from "../builder/Designer";
 import PreviewDialogBtn from "./PreviewDialogBtn";
 import PublishFormButton from "./PublishFormButton";
 import SaveFormButton from "./SaveFormButton";
+import DragOverlayWrapper from "../builder/DragOverlayWrapper";
 
 type FormBuilderProps = {
   form: Form;
@@ -37,6 +38,7 @@ const FormBuilder: FC<FormBuilderProps> = ({ form }) => {
           <Designer />
         </div>
       </main>
+      <DragOverlayWrapper />
     </DndContext>
   );
 };
