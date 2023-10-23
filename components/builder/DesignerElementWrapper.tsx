@@ -9,7 +9,7 @@ const DesignerElementWrapper: FC<DesignerElementWrapperProps> = ({
   element,
 }) => {
   const DesignerElement = FormElements[element.type].designerComponent;
-  return <DesignerElement />;
+  return <DesignerElement elementInstance={element} />;
 };
 
 export default DesignerElementWrapper;

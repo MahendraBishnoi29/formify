@@ -61,7 +61,7 @@ const Designer: FC<DesignerProps> = ({}) => {
           )}
 
           {elements?.length > 0 ? (
-            <div className="flex flex-col w-full gap-2 p-4 text-background">
+            <div className="flex flex-col w-full gap-2 p-4">
               {elements.map((elem) => (
                 <DesignerElementWrapper key={elem.id} element={elem} />
               ))}
